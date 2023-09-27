@@ -1,8 +1,9 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
-let score = Number(document.querySelector('.score').textContent);
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let score = 20;
 
+//Check btn
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
@@ -42,4 +43,16 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+//Again btn
+document.querySelector('.again').addEventListener('click', function () {
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.number').style.width = '15rem';
+  score = 20;
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
 });
